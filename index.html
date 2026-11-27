@@ -1,0 +1,270 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>DreamX Trading Hub</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="theme-color" content="#0b0e14">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="DreamX">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/png" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="stylesheet" href="style.css">
+</head><body>
+<div id="top"><span id="logo" title="Back to DreamX Home">◆ DreamX Trading Hub</span><button id="homebtn" title="Open DreamX Home Page">⌂ Home</button><span id="pill"></span></div>
+<div id="bar2">
+<button id="profbtn" title="Menu &amp; Profile"><span class="pf-av" id="profav">N</span></button>
+<button id="mob-tbtn" title="Drawing Tools" aria-label="Toggle Drawing Tools">✎</button>
+<button id="sb2" title="Symbol Search"></button>
+<button id="cmpb" title="Compare or Add Symbol"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg></button>
+<div class="sep"></div>
+<span id="tfs"></span>
+<div class="sep"></div>
+<span id="ctfav"></span><button id="ctype" title="Chart type"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 4v3m0 10v3M16 5v4m0 8v3"/><rect x="6" y="7" width="4" height="10" rx=".5"/><rect x="14" y="9" width="4" height="8" rx=".5"/></svg></button>
+<div class="sep"></div>
+<button id="ib" title="Indicators"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 17l5-6 4 3 7-8"/><path d="M4 20h16"/></svg> Indicators</button>
+<div class="sep"></div>
+<button id="alrb" title="Create Alert"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="13" r="7.5"/><path d="M12 9.5v4l2.5 1.5M5 4.5L2.5 7M19 4.5L21.5 7"/></svg> Alert</button>
+<div class="sep"></div>
+<button id="rpb" title="Bar Replay"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11 6l-6 6 6 6V6z"/><path d="M19 6l-6 6 6 6V6z"/></svg> Replay</button>
+<span id="bar2r"><button id="lytb" title="Select multi-chart grid" style="border-color:var(--b)"><svg viewBox="0 0 22 18" width="18" height="15" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="1.5" y="1.5" width="19" height="15" rx="2.5"/></svg></button><div id="layw"><button id="layb" title="Save &amp; manage custom chart layouts (Ctrl + S)"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 18.5h11a4 4 0 0 0 .8-7.92A5.5 5.5 0 0 0 7.7 8.4 3.8 3.8 0 0 0 6.5 18.5z"/></svg><span id="laynm">Unnamed</span><span id="laydot" title="Unsaved changes"></span><span class="laycar">▾</span></button></div><button id="gb" title="Settings" style="border-color:var(--b)">⚙ Settings</button><button id="fsbtn" title="Fullscreen mode (Shift + F)" style="border-color:var(--b)"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button><button id="snap" title="Chart snapshot (PNG)" style="border-color:var(--b)">📷</button></span>
+</div>
+<div id="main"><div id="tools"></div><div id="wrap"><canvas id="c"></canvas><div id="sl"></div><div id="cu"></div><div id="pn"></div><div id="tp"></div><div id="lpt"></div><div id="nvb"><button data-nb="out" title="Zoom out">−</button><button data-nb="in" title="Zoom in">+</button><button data-nb="l" title="Scroll back">‹</button><button data-nb="r" title="Scroll forward">›</button><button data-nb="end" title="Go to latest bar">⇥</button></div><div id="mgrid"></div><div id="objp"><div class="hd"><b>Object Tree</b><button id="objx" title="Close">✕</button></div><div id="objl"></div></div></div></div>
+<div id="foot"><span id="rngb"><button data-rg="1M" title="Fit 1 Month">1M</button><button data-rg="6M" title="Fit 6 Months">6M</button><button data-rg="1Y" title="Fit 1 Year">1Y</button><button data-rg="3Y" title="Fit 3 Years (Elliott Wave)">3Y</button><button data-rg="5Y" title="Load &amp; Fit 5 Years (Elliott Wave)">5Y</button><button data-rg="ALL" title="Fit All Loaded History">All</button></span><span id="histst" class="mu"></span><span class="mu" style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Drag price axis = scale · time axis = zoom · dbl-click candle = settings · axis = reset</span><span id="cdf" class="mu" style="flex:none"></span><span id="clk"></span><div class="sep"></div><button id="blog" class="sm" title="Logarithmic scale">log</button><button id="bauto" class="sm" title="Auto-fit price scale">auto</button></div><div id="toast"></div>
+<div id="md"><div id="bx"><div class="hd"><b>Indicators</b><input id="q" placeholder="Search indicators or My Scripts… (RSI, MACD, Pine)" autocomplete="off"><button id="x">✕</button></div><div id="indtabs"></div><div id="ls"></div></div></div>
+<div id="tfp"></div><div id="ctp"></div><div id="lytp"></div><div id="fly"></div><div id="fvb"></div>
+<div id="rplbar">
+  <span class="rph" title="Drag to move">⋮⋮</span>
+  <button id="rpljmp" title="Select starting bar on chart">✂ Jump to</button>
+  <div class="sep"></div>
+  <button id="rplplay" title="Play / Pause Replay">▶</button>
+  <button id="rplstep" title="Forward 1 bar (Step candle by candle)">▶|</button>
+  <div class="sep"></div>
+  <span class="mu" style="font-size:11px">Speed</span>
+  <select id="rplspd" title="Replay playback speed">
+    <option value="2000">0.5x</option>
+    <option value="1000" selected>1x</option>
+    <option value="500">2x</option>
+    <option value="333">3x</option>
+    <option value="200">5x</option>
+    <option value="100">10x</option>
+    <option value="50">20x</option>
+  </select>
+  <span id="rplstat">Click a bar</span>
+  <div class="sep"></div>
+  <button id="rplexit" title="Exit Bar Replay (Return to live chart)">✕</button>
+</div>
+<div id="evm"><div id="evb"><div class="hd"><b id="evt"></b><button id="evx">✕</button></div><div id="evc"></div></div></div>
+<div id="sy"><div id="by"><div class="hd"><b>Symbol Search</b><input id="q2" placeholder="Search Binance, Bybit, MEXC, OKX, Forex, Stocks… (BYBIT:BTCUSDT, MEXC:SOL, XAUUSD)" autocomplete="off"><select id="qex" title="Filter by exchange / source"><option value="All">All sources</option><option value="BINANCE">Binance</option><option value="BYBIT">Bybit</option><option value="MEXC">MEXC</option><option value="OKX">OKX</option><option value="BITGET">Bitget</option><option value="KUCOIN">KuCoin</option><option value="GATEIO">Gate.io</option><option value="COINBASE">Coinbase</option><option value="KRAKEN">Kraken</option><option value="HTX">HTX</option><option value="FX">Forex (FX)</option><option value="STK">Stocks &amp; Global</option></select><button id="x2">✕</button></div><div id="qf" class="r"></div><div id="qf2"></div><div id="ls2"></div></div></div>
+<div id="cmpm"><div id="cmpb_box"><div class="hd"><b>Compare Symbols</b><input id="cmpq" placeholder="Compare any market (EURUSD, XAUUSD, SPX, AAPL, DXY, ETH…)" autocomplete="off"><button id="cmpx">✕</button></div><div id="cmptags"></div><div id="cmpqf"></div><div id="cmpls"></div></div></div>
+<div id="alrm"><div id="alrb_box"><div class="hd"><b>Alerts — <span id="alrsym"></span></b><button id="alrx">✕</button></div><div class="alrf"><div class="row"><select id="alrcond"><option value="cross">Crossing</option><option value="up">Crossing Up</option><option value="down">Crossing Down</option></select><input id="alrpr" type="number" step="any" placeholder="Price level"></div><div class="row"><input id="alrmsg" type="text" placeholder="Alert message (optional)"></div><div class="row"><input id="alremail" type="email" placeholder="Email for auto-alert (saved for close/offline)"><button id="alradd" class="pri">Create Alert</button></div><small class="mu" id="alrnote">Browser notifications &amp; sound work even when minimized. Enter your email to get prompted/notified on close.</small></div><div id="alrls"></div></div></div>
+
+<div id="sm"><div id="sx"><div class="hd"><b>Settings</b><button id="sxx">✕</button></div><div id="lycb"></div><div id="fzb"><span>Text size</span><input type="range" id="fzr" min="12" max="22" step="1"><b id="fzv"></b><span class="mu">Make the text inside Settings smaller or bigger</span></div><div class="sb"><div class="nv"><button data-tab="s">Symbol</button><button data-tab="l">Status line</button><button data-tab="p">Scales and lines</button><button data-tab="c">Canvas</button><button data-tab="t">Trading</button><button data-tab="a">Alerts</button><button data-tab="e">Events</button></div><div id="sp"></div></div></div></div>
+<div id="ctxm"></div><div id="ctxsub"></div>
+<div id="ordm"><div id="ordb">
+  <div class="hd"><b>Add Order — <span id="ordsym"></span></b><button id="ordx">✕</button></div>
+  <div class="ord-tabs"><button id="ordb_buy" class="b-on">BUY</button><button id="ordb_sell">SELL</button></div>
+  <div class="ord-body">
+    <div class="ord-row"><label>Order type</label><select id="ordtype"><option value="limit">Limit</option><option value="stop">Stop</option><option value="market">Market</option></select></div>
+    <div class="ord-row"><label>Price</label><input id="ordpr" type="number" step="any" placeholder="Order price"></div>
+    <div class="ord-row"><label>Quantity</label><input id="ordqty" type="number" step="any" min="0" placeholder="Quantity"></div>
+    <div class="ord-row"><label>Take Profit</label><input id="ordtp" type="number" step="any" placeholder="Optional"></div>
+    <div class="ord-row"><label>Stop Loss</label><input id="ordsl" type="number" step="any" placeholder="Optional"></div>
+    <small class="mu" id="ordhint">Pending Limit/Stop orders display on chart &amp; auto-fill when price is reached.</small>
+    <button id="ordgo">Place Buy Limit Order</button>
+  </div>
+</div></div>
+<div id="tblm"><div id="tblb">
+  <div class="hd"><b>Table View — <span id="tblsym"></span></b><button id="tblx">✕</button></div>
+  <div class="tbl-bar">
+    <input id="tblq" placeholder="Filter by date (e.g. 2025, Nov)…" autocomplete="off">
+    <button id="tblsort" title="Toggle newest/oldest first">↓ Newest first</button>
+    <button id="tblcsv" title="Export visible rows as CSV">⬇ Export CSV</button>
+    <span id="tblcnt" class="mu" style="margin-left:auto;font-size:11px"></span>
+  </div>
+  <div id="tblw"></div>
+</div></div>
+<div id="dtbar"></div><div id="dtpop"></div>
+<div id="dsm"><div id="dsb">
+  <div class="hd"><span class="dstit" id="dstit">Trendline</span><button class="dsren" id="dsren" title="Rename drawing"><svg viewBox="0 0 20 20" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13.5 3.5l3 3L6.5 16.5H3.5v-3L13.5 3.5z"/></svg></button><button id="dsx" title="Close">✕</button></div>
+  <div class="dstabs">
+    <button data-dst="inputs" style="display:none">Inputs</button>
+    <button data-dst="style" class="on">Style</button>
+    <button data-dst="text">Text</button>
+    <button data-dst="coord">Coordinates</button>
+    <button data-dst="vis">Visibility</button>
+  </div>
+  <div id="dsp"></div>
+  <div class="dsfoot">
+    <button id="dstpl">Template ▾</button>
+    <button id="dscancel">Cancel</button>
+    <button id="dsok">Ok</button>
+  </div>
+</div></div>
+<div id="ism"><div id="isb">
+  <div class="hd"><span class="istit" id="istit">Indicator Settings</span><button id="isx" title="Close">✕</button></div>
+  <div class="istabs">
+    <button data-ist="inputs" class="on">Inputs</button>
+    <button data-ist="style">Style</button>
+    <button data-ist="vis">Visibility</button>
+  </div>
+  <div id="isp"></div>
+  <div class="isfoot">
+    <button id="isdef" title="Reset this indicator to TradingView defaults">↺ Reset Defaults</button>
+    <button id="iscancel">Cancel</button>
+    <button id="isok">Ok</button>
+  </div>
+</div></div>
+<div id="psm"><div id="psb">
+  <div class="hd"><b id="pstit">Pine Script Editor — Add Indicator</b><button id="psx" title="Close">✕</button></div>
+  <div class="ps-bar">
+    <input id="psname" type="text" placeholder="Script name (auto from indicator())" style="flex:1.2;min-width:160px" autocomplete="off">
+    <select id="psmode" title="Chart placement">
+      <option value="auto">Placement: Auto from Pine</option>
+      <option value="o">Overlay (On Price Chart)</option>
+      <option value="s">Sub-pane (Separate Panel)</option>
+    </select>
+    <select id="pstpl" title="Load a ready-to-use Pine Script example">
+      <option value="">Load Pine template…</option>
+      <option value="ema_cross">EMA Cross + Signals (Overlay)</option>
+      <option value="supertrend">Supertrend (Overlay)</option>
+      <option value="donchian">Donchian Channels (Overlay)</option>
+      <option value="ichimoku">Ichimoku Cloud (Overlay)</option>
+      <option value="stoch_rsi">Stochastic RSI (Sub-pane)</option>
+      <option value="cci">CCI Oscillator (Sub-pane)</option>
+    </select>
+    <button type="button" id="psimp" title="Import a .pine or .txt file">📂 Import</button>
+  </div>
+  <textarea id="pscode" spellcheck="false" placeholder="//@version=5&#10;indicator(&quot;My Custom EMA&quot;, overlay=true)&#10;len = input.int(21, &quot;Length&quot;, minval=1)&#10;src = input.source(close, &quot;Source&quot;)&#10;ma = ta.ema(src, len)&#10;plot(ma, title=&quot;EMA&quot;, color=color.orange, linewidth=2)"></textarea>
+  <div id="psst">Paste any TradingView Pine Script (v3 / v4 / v5 / v6) or pick a template above.</div>
+  <div class="psfoot">
+    <button type="button" id="pstest" title="Compile and check syntax">▶ Compile / Test</button>
+    <span style="flex:1"></span>
+    <button type="button" id="pscancel">Cancel</button>
+    <button type="button" id="pssave" title="Save to My Scripts without adding to chart">Save to My Scripts</button>
+    <button type="button" id="psadd" title="Save to My Scripts and add to chart now">Save &amp; Add to Chart</button>
+  </div>
+</div></div>
+<div id="profm"></div>
+<div id="langm"><div id="langb">
+  <div class="hd"><b>Language</b><button id="langx" title="Close">✕</button></div>
+  <div class="lg-top"><input id="langq" placeholder="Search any language… (English, සිංහල, தமிழ், हिन्दी, العربية, 日本語)" autocomplete="off"></div>
+  <div id="langls"></div>
+  <div class="lg-st"><span id="langstat">120+ world languages · instant system translation</span><button id="langreset" style="border:1px solid var(--b);font-size:11.5px;padding:2px 9px">English (Default)</button></div>
+</div></div>
+<div id="ksm"><div id="ksb">
+  <div class="hd"><b>Keyboard shortcuts</b><button id="ksadd" title="Add your own custom shortcut">+ Add shortcut</button><button id="ksrst" title="Reset all shortcuts to defaults" style="border:1px solid var(--b);font-size:12px;padding:4px 10px">↺ Reset all</button><button id="ksx" title="Close">✕</button></div>
+  <div id="ksform">
+    <div class="ksf-row">
+      <label>Action type</label>
+      <select id="ksat" style="flex:1;min-width:150px">
+        <option value="tool">Drawing Tool (any tool)</option>
+        <option value="tf">Timeframe / Interval</option>
+        <option value="ct">Chart Type (Candles, TPO, SVP…)</option>
+        <option value="ind">Toggle Indicator</option>
+        <option value="sym">Switch Symbol / Pair</option>
+        <option value="rng">Range / Zoom Fit</option>
+        <option value="cmd">Chart / Trading Action</option>
+      </select>
+      <select id="ksv" style="flex:1.3;min-width:170px"></select>
+      <input id="ksv_txt" type="text" placeholder="e.g. BTCUSDT or 45m" style="display:none;flex:1.1;min-width:140px" autocomplete="off">
+    </div>
+    <div class="ksf-row">
+      <label>Name</label>
+      <input id="kslbl" type="text" placeholder="Shortcut label (optional)" style="flex:1;min-width:160px" autocomplete="off">
+      <button type="button" class="ks-key empty" id="ksrec_new" title="Click and press your desired key combination">Press keys…</button>
+      <button type="button" id="kssave_new" style="background:#26a69a;color:#fff;font-weight:600;padding:5px 13px;border-radius:6px">Save</button>
+      <button type="button" id="kscancel_new" style="border:1px solid var(--b);padding:5px 9px;border-radius:6px">Cancel</button>
+    </div>
+  </div>
+  <div class="lg-top"><input id="ksq" placeholder="Search shortcuts… (Trendline, Fib, Undo, Redo, Elliott, Fullscreen, Buy)" autocomplete="off"></div>
+  <div class="ks-cats" id="kscats"></div>
+  <div id="ksls"></div>
+  <div class="lg-st"><span>Click any shortcut box and press your key combo to edit, or click <b>+ Add shortcut</b> to create your own.</span></div>
+</div></div>
+<div id="infom"><div id="infob">
+  <div class="hd"><b id="infot">DreamX Trading Hub</b><button id="infox" title="Close">✕</button></div>
+  <div id="infoc"></div>
+</div></div>
+<div id="layp"></div>
+<div id="laym"><div id="laybox">
+  <div class="hd"><b>Load Chart Layout</b><button type="button" id="laynewm" class="pri-sm">+ New layout</button><button type="button" id="layimpm" title="Import layout JSON">📂 Import</button><button id="layx" title="Close">✕</button></div>
+  <div class="lg-top"><input id="layq" placeholder="Search saved layouts…" autocomplete="off"></div>
+  <div id="layls"></div>
+  <div class="lg-st"><span>Saves full chart settings, candle &amp; price label colors, indicators, multi-chart panes, theme &amp; drawings.</span><span><b>Ctrl + S</b> Save · <b>.</b> Open</span></div>
+</div></div>
+<div id="dx-home" aria-label="DreamX Trading Hub Home"></div>
+<div id="gatem" role="dialog" aria-modal="true" aria-label="Unlock Pro Feature">
+  <div id="gatebox">
+    <button type="button" id="gatex" title="Close">✕</button>
+    <div class="gt-icon">🔒</div>
+    <div class="gt-kicker">FREE ACCOUNT REQUIRED</div>
+    <h3 id="gt-title">Unlock Pro Charting Feature</h3>
+    <p id="gt-desc">Sign in or create a free DreamX account to access institutional orderflow charts and sub-minute timeframes — 100% free with cloud sync.</p>
+    <div class="gt-chips">
+      <span>⚡ Seconds · Ticks · Ranges</span>
+      <span>📊 Volume Footprint + Table</span>
+      <span>🔤 TPO Market Profile</span>
+      <span>📈 Session Volume Profile (SVP)</span>
+    </div>
+    <button type="button" id="gt-google" class="au-gbtn">
+      <svg viewBox="0 0 24 24" width="18" height="18"><path fill="#4285F4" d="M23.49 12.27c0-.79-.07-1.54-.2-2.27H12v4.3h6.44a5.5 5.5 0 0 1-2.39 3.61v3h3.87c2.26-2.08 3.57-5.15 3.57-8.64z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.07 7.93-2.91l-3.87-3c-1.07.72-2.44 1.15-4.06 1.15-3.12 0-5.77-2.11-6.71-4.95H1.29v3.09A12 12 0 0 0 12 24z"/><path fill="#FBBC05" d="M5.29 14.29A7.2 7.2 0 0 1 4.91 12c0-.79.14-1.56.38-2.29V6.62H1.29A12 12 0 0 0 0 12c0 1.94.46 3.77 1.29 5.38l4-3.09z"/><path fill="#EA4335" d="M12 4.76c1.76 0 3.34.61 4.58 1.8l3.44-3.44C17.95 1.19 15.24 0 12 0A12 12 0 0 0 1.29 6.62l4 3.09c.94-2.84 3.59-4.95 6.71-4.95z"/></svg>
+      <span>Continue with Google</span>
+    </button>
+    <button type="button" id="gt-signup" class="au-sub">Create Free Account with Email</button>
+    <div class="gt-foot">
+      <span>Already have an account?</span>
+      <button type="button" id="gt-signin" class="au-link">Sign In</button>
+    </div>
+  </div>
+</div>
+<div id="authm" role="dialog" aria-modal="true" aria-label="Sign in to DreamX">
+  <div id="authbox">
+    <div class="hd">
+      <div class="au-brand"><span class="au-logo">◆</span><b>DreamX Account</b></div>
+      <button type="button" id="authx" title="Close">✕</button>
+    </div>
+    <div class="au-tabs">
+      <button type="button" class="on" data-autab="in">Sign In</button>
+      <button type="button" data-autab="up">Create Account</button>
+    </div>
+    <div class="au-body">
+      <div id="au-setup-note" class="au-note" style="display:none">
+        <b>Firebase Auth not configured yet.</b> Paste your free Firebase web config into <code>firebase-config.js</code> to enable live Google &amp; Email Sign Up.
+      </div>
+      <button type="button" id="au-google" class="au-gbtn">
+        <svg viewBox="0 0 24 24" width="18" height="18"><path fill="#4285F4" d="M23.49 12.27c0-.79-.07-1.54-.2-2.27H12v4.3h6.44a5.5 5.5 0 0 1-2.39 3.61v3h3.87c2.26-2.08 3.57-5.15 3.57-8.64z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.07 7.93-2.91l-3.87-3c-1.07.72-2.44 1.15-4.06 1.15-3.12 0-5.77-2.11-6.71-4.95H1.29v3.09A12 12 0 0 0 12 24z"/><path fill="#FBBC05" d="M5.29 14.29A7.2 7.2 0 0 1 4.91 12c0-.79.14-1.56.38-2.29V6.62H1.29A12 12 0 0 0 0 12c0 1.94.46 3.77 1.29 5.38l4-3.09z"/><path fill="#EA4335" d="M12 4.76c1.76 0 3.34.61 4.58 1.8l3.44-3.44C17.95 1.19 15.24 0 12 0A12 12 0 0 0 1.29 6.62l4 3.09c.94-2.84 3.59-4.95 6.71-4.95z"/></svg>
+        <span>Continue with Google</span>
+      </button>
+      <div class="au-div"><span>or continue with email</span></div>
+      <form id="au-form" autocomplete="on">
+        <div class="au-fld" id="au-name-wrap" style="display:none">
+          <label for="au-name">Display Name</label>
+          <input id="au-name" type="text" placeholder="Your name (e.g. Nuwanidu)" autocomplete="name">
+        </div>
+        <div class="au-fld">
+          <label for="au-email">Email</label>
+          <input id="au-email" type="email" placeholder="you@example.com" autocomplete="email" required>
+        </div>
+        <div class="au-fld">
+          <label for="au-pass">Password</label>
+          <div class="au-pw">
+            <input id="au-pass" type="password" placeholder="Minimum 6 characters" autocomplete="current-password" required>
+            <button type="button" id="au-eye" title="Show / hide password">👁</button>
+          </div>
+        </div>
+        <div class="au-row-aux" id="au-forgot-wrap">
+          <button type="button" id="au-forgot" class="au-link">Forgot password?</button>
+        </div>
+        <div id="au-msg" class="au-msg" style="display:none"></div>
+        <button type="submit" id="au-sub" class="au-sub">Sign In</button>
+      </form>
+      <div class="au-foot">
+        <span id="au-sw-txt">New to DreamX?</span>
+        <button type="button" id="au-sw-btn" class="au-link">Create free account</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="firebase-config.js"></script>
+<script src="app-links.js"></script>
+<script src="script.js"></script></body></html>
